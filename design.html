@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="zh-CN" manifest="cache.manifest">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Snaker - 开源轻量级工作流引擎</title>
+</head>
+<link rel="stylesheet" type="text/css" href="css/bootstrap-responsive.min.css"/>
+<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
+<link rel="stylesheet" type="text/css" href="css/common.css"/>
+<link rel="stylesheet" type="text/css" href="css/shCoreDefault.css" />
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/shCore.js"></script>
+<script type="text/javascript" src="js/shBrushXml.js"></script>
+<script type="text/javascript" src="js/shBrushJava.js"></script>
+<script type="text/javascript">SyntaxHighlighter.all();</script>
+<body>
+	<div class="navbar-wrapper">
+    	<div class="container">
+        	<div class="navbar navbar-inverse">
+            	<div class="navbar-inner">
+                	<button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                   </button>
+                   <a class="brand" href="#"><img src="img/logo.png"/></a>
+                   <div class="nav-collapse collapse">
+                    	<ul class="nav">
+                  			<li><a href="index.html">首页</a></li>
+							<li><a href="demo.html">案例</a></li>
+							<li><a href="book/index.html" target="_blank">文档</a></li>
+							<li class="active"><a href="design.html">设计</a></li>
+							<li><a href="userlist.html">用户列表</a></li>
+							<li><a href="business.html">商业计划</a></li>
+							<li><a href="donate.html"><img src="img/donate.png"/></a></li>
+                        </ul>
+                   </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+	<article class="container">
+	<section class="row" id="travel" style="margin-top: 80px;">
+        <div class="span12 panel" style="display: block;">
+        	<div class="row">
+            	<div class="span12">
+                	<div class="block-left">
+                        <h4>流程定义</h4>
+						<img src="img/definition.png"/>
+                        <p>
+						流程定义文件以snaker作为后缀名，实际上是一个xml文件，流程引擎负责解析xml文件并且转换为
+						java对象ProcessModel，其中包含常用的组件模型(NodeModel子类).它们之间的关系如下图所示:
+						<img src="img/model.png"/>
+						</p>
+						<p>Snaker崇尚简单，所以组件模型非常精简，主要由两类元素组成:<br>
+						1)流转逻辑元素:StartModel,DecisionModel,ForkModel,JoinModel,EndModel<br>
+						2)业务逻辑元素:TaskModel,CustomModel,SubProcessModel</p>
+                        <br>
+                        <h4>流程服务</h4>
+						<img src="img/service.png"/>
+                        <p>
+						从上图可知，流程引擎SnakerEngine对象是由Configuration根据snaker.xml构建所得，并且包含四项服务:<br>
+						1)ProcessService:负责部署、卸载、更新流程，并且可创建无流程定义的自由流程<br>
+						2)OrderService:负责创建、更新、完成、终止流程实例<br>
+						3)TaskService:负责创建、完成任务，并且可创建自由任务<br>
+						4)ManagerService:负责提供与流程相关的管理服务<br>
+						5)QueryService:负责与流程相关的查询操作<br>
+						</p>
+                        <br>
+                        <h4>调度执行</h4>
+						<img src="img/execute.png"/>
+                        <p>Snaker所有的组件模型都实现了Action接口，该接口定义如下:</p>
+						<pre class="brush: java;">
+						public interface Action {
+							/**
+							 * 根据当前的执行对象由具体模型进行执行操作
+							 * @param execution 执行对象
+							 */
+							public void execute(Execution execution);
+						}
+						</pre>
+						<p>
+						一旦流程启动，后续执行交给具体的组件模型来控制。各组件模型根据当前传递的Execution对象来调度
+						处理器Handler实现类。
+						</p>
+						<img src="img/handler.png"/>
+                        <br>
+                        <h4>事务控制</h4>
+						<img src="img/transaction.png"/>
+                        <p>
+						如果与Spring集成，可以将事务管理交给Spring处理.如果使用API集成，由Snaker自己管理事务，则上图展现了事务管理的过程<br>
+						由AOP+ThreadLocal+Status来实现基本的事务管理，与DBAccess之间通过TransactionObjectHolder来传递数据访问对象(Connection/Session/SqlSession...)
+						</p>
+                        <br>
+						<h4>单元测试</h4>
+						<p>单元测试覆盖率:(分析工具EclEmma)</p>
+						<img src="img/test.png"/>
+						<p>目前对Snaker大部分的业务流程场景进行了测试，测试用例源码参考<br>
+						<a href="https://github.com/snakerflow/snaker-core/tree/master/src/test/java/test" target="_blank">
+						https://github.com/snakerflow/snaker-core/tree/master/src/test/java/test
+						</a></p>
+                    </div>
+                </div>
+			</div>
+        </div>
+    </section>
+    </article>
+    <div class="container marketing">
+		<footer>
+			<p>&copy; 2013-2015 Snaker 皖ICP备14011739号</p>
+		</footer>    
+    </div>
+	<script type="text/javascript">
+		var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+		document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F89978c29a2dac2a973c76424425ead4f' type='text/javascript'%3E%3C/script%3E"));
+	</script>
+</body>
+</html>

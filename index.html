@@ -1,0 +1,367 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN" manifest="cache.manifest">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="Keywords" content="snaker,snakerflow,工作流,轻量级,流程引擎,docs,开源,snaker flow,flow"/>
+<meta name="description" content="Snaker - 开源轻量级工作流引擎"/>
+<title>Snaker - 开源轻量级工作流引擎</title>
+
+<link rel="stylesheet" type="text/css" href="css/bootstrap-responsive.min.css"/>
+<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
+<link rel="stylesheet" type="text/css" href="css/common.css"/>
+<link rel="stylesheet" type="text/css" href="css/shCoreDefault.css" />
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/shCore.js"></script>
+<script type="text/javascript" src="js/shBrushXml.js"></script>
+<script type="text/javascript" src="js/shBrushJava.js"></script>
+<script type="text/javascript">SyntaxHighlighter.all();</script>
+<script type="text/javascript">
+	//window.location.href="http://snakerflow.com";
+</script>
+</head>
+<body>
+	<div class="navbar-wrapper">
+    	<div class="container">
+        	<div class="navbar navbar-inverse">
+            	<div class="navbar-inner">
+                	<button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                   </button>
+                   <a class="brand" href="#"><img src="img/logo.png"/></a>
+                   <div class="nav-collapse collapse">
+                    	<ul class="nav">
+                  			<li class="active"><a href="index.html">首页</a></li>
+							<li><a href="demo.html">案例</a></li>
+							<li><a href="book/index.html" target="_blank">文档</a></li>
+							<li><a href="design.html">设计</a></li>
+							<li><a href="userlist.html">用户列表</a></li>
+							<li><a href="business.html">商业计划</a></li>
+							<li><a href="donate.html"><img src="img/donate.png"/></a></li>
+                        </ul>
+                   </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+	<article class="container">
+	<section class="row" id="travel" style="margin-top: 80px;">
+        <div class="span12 panel" style="display: block;">
+        	<div class="row">
+            	<div class="span12">
+                	<div class="block-left">
+                        <h3>概述</h3>
+                        <p>Snaker是一个基于Java的开源工作流引擎，适用于企业应用中常见的业务流程。本着轻量、简单、灵巧理念设计，定位于简单集成，多环境支持</p>
+                        <br>
+						<p><b>轻量</b>:核心代码行数大约7000行，强大的扩展性，<font color="red">支持Spring、Jfinal、Nutz平台级框架；支持Jdbc、SpringJdbc、Hibernate3or4、Mybatis等orm框架</font></p>
+						<p><b>简单</b>:表设计简单，流程组件简单[start/end/task/custom/subprocess/decision/fork/join]</p>
+						<p><b>灵巧</b>:暴露大量可扩展接口，支持流程设计器、流程引擎的组件模型自定义[节点自定义、属性自定义、表单自定义]</p>
+						<p><b>开源协议</b>:<a href="http://www.apache.org/licenses/LICENSE-2.0.html" target="_blank">Apache License Version 2.0</a></p>
+                    </div>
+                </div>
+                
+				<div class="span12">
+                	<div class="block-left">
+                        <h3>依赖</h3>
+                        <p>maven项目中，直接在pom文件中添加snaker的依赖即可:</p>
+						<pre class="brush: xml;">
+							&lt;dependency&gt;
+								&lt;groupId&gt;com.github.snakerflow&lt;/groupId&gt;
+								&lt;artifactId&gt;snaker-core&lt;/artifactId&gt;
+								&lt;version&gt;2.5.1&lt;/version&gt;
+							&lt;/dependency&gt;
+						</pre>
+						<!--
+						<p>项目使用Spring框架时需要依赖:</p>
+						<pre class="brush: xml;">
+							&lt;dependency&gt;
+								&lt;groupId&gt;com.github.snakerflow&lt;/groupId&gt;
+								&lt;artifactId&gt;snaker-spring&lt;/artifactId&gt;
+								&lt;version&gt;2.5.0&lt;/version&gt;
+							&lt;/dependency&gt;
+						</pre>
+						-->
+                    </div>
+                </div>
+				<!--
+                <div class="span6">
+					<div class="block-left">
+						<h3>依赖关系</h3>
+                        <p>maven项目中，直接在pom文件中添加snaker的依赖即可:</p>
+						<pre class="brush: xml;">
+							&lt;dependency&gt;
+								&lt;groupId&gt;com.github.snakerflow&lt;/groupId&gt;
+								&lt;artifactId&gt;snaker-core&lt;/artifactId&gt;
+								&lt;version&gt;2.5.0&lt;/version&gt;
+							&lt;/dependency&gt;
+						</pre>
+						<p>非maven项目需要添加snaker的依赖包:</p>
+						<pre class="brush: java;">
+							cglib-nodep-2.2.jar
+							commons-beanutils-1.8.3.jar
+							commons-lang-2.5.jar
+							jackson-core-asl-1.9.4.jar
+							jackson-mapper-asl-1.9.4.jar
+							slf4j-api-1.7.2.jar
+							snaker-core-2.5.0.jar
+							joda-time-2.3.jar
+						</pre>
+					</div>
+        		</div>
+				-->
+			</div>
+        </div>
+    </section>
+	<section class="row" id="apple" style="margin-top: 0px;">
+   		<div class="span12 panel relative" style="display: block;">
+        	<div class="row">
+                <div class="span6">
+					<div class="padding-huge">
+						<h3>github</h3>
+                        <p>流程引擎:<br><a href="https://github.com/snakerflow/snakerflow" target="_blank">https://github.com/snakerflow/snakerflow</a></p>
+						<!--
+						<p>演示应用(Spring):<br><a href="https://github.com/snakerflow/snaker-web" target="_blank">https://github.com/snakerflow/snaker-web</a></p>
+						-->
+						<p>Eclipse插件:<br><a href="https://github.com/snakerflow/snaker-designer" target="_blank">https://github.com/snakerflow/snaker-designer</a></p>
+						<p>QQ群:<font color="red">293568574</font></p>
+						<p>百度网盘：<a href="http://pan.baidu.com/s/1hqza8BU" target="_blank">http://pan.baidu.com/s/1hqza8BU</a></p>
+						<br>
+					</div>
+				</div>
+                <div class="span6">
+					<div class="padding-huge">
+						<h3>oscgit</h3>
+						<p>流程引擎:<br><a href="http://git.oschina.net/yuqs/snakerflow" target="_blank">http://git.oschina.net/yuqs/snakerflow</a></p>
+						<!--
+						<p>演示应用(SpringMVC+Spring+Hibernate):<br><a href="http://git.oschina.net/yuqs/snaker-web" target="_blank">http://git.oschina.net/yuqs/snaker-web</a></p>
+						<p>演示应用(JFinal):<br><a href="http://git.oschina.net/yuqs/jfaker" target="_blank">http://git.oschina.net/yuqs/jfaker</a></p>
+						-->
+						<p>Eclipse插件:<br><a href="http://git.oschina.net/yuqs/snaker-designer" target="_blank">http://git.oschina.net/yuqs/snaker-designer</a></p>
+						<p>邮箱:<font color="red">snakerflow@163.com</font></p>
+					</div>
+                </div>
+			</div>
+		</div>
+    </section>
+	<section class="row" id="apple" style="margin-top: 0px;">
+   		<div class="span12 panel relative" style="display: block;">
+        	<div class="row">
+                <div class="span12">
+					<div class="padding-huge">
+						<h3>版本升级日志</h3>
+						<h4><font color="red">version 2.5.1[最新版]</font></h4>
+						<p>
+						-ADD:hibernate4子模块实现getConnection的api<br>
+						-BUG FIX:修复getActiveOrders查询[流程中文名称检索时]<br>
+						-BUG FIX:修复complete完成实例[hibernate作为ORM时，会造成session重复对象]<br>
+						</p>
+
+						<br>
+						<h4><font color="red">version 2.5.0</font></h4>
+						<p>
+						1.支持db2、h2数据库<br>
+						2.独立snaker-hibernate4模块，原生支持hibernate4<br>
+						3.查询api增强<br>
+						4.支持jfinal1.9，将snaker与jfinal的属性文件进行整合<br>
+						5.活动任务的处理人列表可通过变量map的S-ACTOR key获取<br>
+						6.活动的流程实例、任务支持更新部分字段的api（expireTime、actionUrl等）<br>
+						7.增加级联删除流程定义、流程实例的api<br>
+						8.custom节点模型执行时记录历史任务<br>
+						9.code review and refactor 
+						</p>
+
+						<br>
+						<h4><font color="red">version 2.4.0</font></h4>
+						<p>
+						1.自动适配数据库方言<br>
+						2.修复sqlserver方言的分页bug <br>
+						3.修复sqlserver+dbutils的bug。use QueryRunner(true)<br>
+						</p>
+
+						<br>
+						<h4><font color="red">version 2.3.0</font></h4>
+						<p>
+						1.增加已完成实例、任务的唤醒功能<br>
+						2.流程引擎初始化允许加载自定义属性 <br>
+						3.测试基类允许子类重新实现getEngine方法<br>
+						4.节点模型增强，getNextModels方法可获取后续指定类型的集合 <br>
+						</p>
+
+						<br>
+						<h4><font color="red">version 2.2.0</font></h4>
+						<p>
+						1.抄送记录增加抄送时间、已阅时间<br>
+						2.任务、实例完成时增加处理动作<br>
+						3.实例查询增加根据流程名称模糊匹配号<br>
+						4.修复会签多人参与的bug<br>
+						</p>
+
+						<br>
+						<h4><font color="red">version 2.1.1</font></h4>
+						<p>
+						1.在snaker-spring子模块中增加spring的测试用例<br>
+						2.修复子流程的后续任务parentTaskId为start的问题<br>
+						3.修复springjdbc的getLatestProcessVersion返回默认0的版本号<br>
+						</p>
+
+						<br>
+						<h4><font color="red">version 2.1.0</font></h4>
+						<p>
+						1.IOrderService支持增加全局变量方法addVariable<br>
+						2.增加抽象类Assignment支持读取所属的任务模型<br>
+						3.BUG:驳回的canReject方法存在算法问题<br>
+						</p>
+
+						<br>
+						<h4><font color="red">version 2.0.0</font></h4>
+						<p>
+						1.snakerflow重新规划，将第三方扩展支持以独立子模块发布<br>
+						2.支持自动初始化脚本，只需要用户创建一个数据源即可<br>
+						3.支持Web自定义表单、eclipse插件自定义表单[未体现在snaker-web演示项目中]<br>
+						4.流程web设计器增强，支持绑定自定义表单、支持选择参与者<br>
+						5.流程状态图增强，支持单击活动节点显示处理人，抵达时间，并且可动态添加参与者<br>
+						6.增加jfinal支持，事务可统一由jfinal控制<br>
+						7.增加nutz支持，事务可统一由nutz控制<br>
+						8.增强：<br>
+						TaskService增加根据taskId获取TaskModel的api<br>
+						Order实体的orderNo支持由map传递运行时数据(key:SnakerEngine.ID)<br>
+						增加IReminder接口，用于超时提醒<br>
+						TaskModel增加表单自定义的模型FieldModel，由表单设计器插件定义表单<br>
+						</p>
+
+						<br>
+						<h4><font color="red">version 1.5.1</font></h4>
+						<p>
+						1.BUG修复：设置assignmentHandler属性无效<br>
+						</p>
+
+						<br>
+						<h4><font color="red">version 1.5.0</font></h4>
+						<p>
+						1.增加任务转派功能<br>
+						2.增加任务主办、协办功能<br>
+						3.增加流程实例抄送功能<br>
+						4.重构ServiceContext,自适应Spring的bean、snaker.xml中配置的bean，以及用户自定义获取bean的方式<br>
+						5.重构order、task的变量获取方式，方便与模板语言整合<br>
+						6.流程定义增加类别、创建人、创建时间字段<br>
+						</p>
+
+						<br>
+						<h4><font color="red">version 1.4.1</font></h4>
+						<p>
+						1.流程定义的编码格式由GBK->UTF-8<br>
+						</p>
+
+						<br>
+						<h4><font color="red">version 1.4.0</font></h4>
+						<p>
+						1.时限控制:任务超时提醒、流程实例超时提醒，任务自动执行<br>
+						2.支持任务委托代理<br>
+						3.代码重构<br>
+						</p>
+
+						<br>
+						<h4><font color="red">version 1.3.0</font></h4>
+						<p>
+						1.增加对流程表原生SQL的查询nativeQuery...()<br>
+						2.增加Cache机制，支持单个虚拟机环境的内存cache以及ehcache<br>
+						3.动态添加参与者方法engine.task().addTaskActor()支持performType参数<br>
+						4.流程定义支持多版本，如根据name启动流程，默认启动最新版本<br>
+						5.增加postgresql数据库的schema及dialect.需要调整bytea类型处理<br>
+						6.wf_process表删除query_sql、parent_id字段，并且name字段删除唯一性约束<br>
+						7.代码重构<br>
+						8.bug:流程重新部署redeploy方法中的save->update<br>
+						9.bug:mybatis的updateProcess配置sql中删除query_url字段<br>
+						10.bug:dbAccess的updateProcess方法参数问题修复<br>
+						11.bug:分页查询sql语句引用问题<br>
+						</p>
+
+						<br>
+						<h4><font color="red">version 1.2.6</font></h4>
+						<p>
+						1.增加QueryFilter查询过滤类，增强IQueryService的查询api<br>
+						</p>
+
+						<br>
+						<h4><font color="red">version 1.2.5</font></h4>
+						<p>
+						1.流程定义业务类调整，去除update方法。统一使用deploy部署、更新<br>
+						2.bug:join节点的合并规则问题修复 <br>
+						3.代码重构<br>
+						</p>
+
+						<br>
+						<h4><font color="red">version 1.2.4</font></h4>
+						<p>
+						1.去除@override注解<br>
+						2.降低dbcp、dbutils依赖库的版本适应jdk5<br>
+						3.jdk5依赖调整<br>
+						4.测试用例以snaker-example项目独立<br>
+						</p>
+
+						<br>
+						<h4><font color="red">version 1.2.3</font></h4>
+						<p>
+						1.提高服务上下文ServiceContext方法的可见性<br>
+						2.增加SpringHelper帮助类适应低版本spring<br>
+						3.调整Spring的api以适应低版本spring<br>
+						4.升级流程设计器插件snaker-designer-1.3.0<br>
+						5.代码重构<br>
+						</p>
+
+						<br>
+						<h4><font color="red">version 1.2.2</font></h4>
+						<p>
+						1.增加spel的表达式支持.与spring整合时，默认使用spel解析器<br>
+						</p>
+
+						<br>
+						<h4><font color="red">version 1.2.1</font></h4>
+						<p>
+						1.支持自定义表达式引擎实现。默认使用juel引擎<br>
+						2.删除bsh表达式引擎的依赖<br>
+						3.删除ExprHelper帮助类<br>
+						4.改造decision的测试用例<br>
+						</p>
+
+						<br>
+						<h4><font color="red">version 1.2.0</font></h4>
+						<p>
+						1.Task模型增加assignmentHandler属性，通过实现AssignmentHandler接口支持编码设置参与者<br>
+						2.删除流程定义仅更新状态state，物理数据不删除<br>
+						3.支持所有节点模型的前置、后置拦截器<br>
+						4.bug:mybatis相关问题修复<br>
+						</p>
+
+						<br>
+						<h4><font color="red">version 1.(0/1).*</font></h4>
+						<p>
+						首次提交，实现基本功能:<br>
+						1.支持常规业务流程逻辑[直流、选择分支、并行、子流程、会签、任意流]<br>
+						2.支持驳回、任意回退、撤回、加减签<br>
+						3.支持Spring环境下的依赖管理<br>
+						4.支持以下orm框架：jdbc+dbutils、mybatis、hibernate、springjdbc<br>
+						5.支持以上orm框架的事务管理以及JTA事务管理<br>
+						</p>
+						</p>
+					</div>
+                </div>
+			</div>
+		</div>
+    </section>
+    </article>
+    <div class="container marketing">
+		<footer>
+			<p>&copy; 2013-2015 Snaker 皖ICP备14011739号</p>
+		</footer>    
+    </div>
+	<script type="text/javascript">
+		var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+		document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F89978c29a2dac2a973c76424425ead4f' type='text/javascript'%3E%3C/script%3E"));
+	</script>
+</body>
+</html>

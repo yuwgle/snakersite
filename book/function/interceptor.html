@@ -1,0 +1,897 @@
+<!DOCTYPE HTML>
+<html lang="en-US" manifest="../manifest.appcache">
+    
+    <head>
+        
+        <meta charset="UTF-8">
+        <title>节点拦截器 | Snaker Document</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 0.7.0">
+        <meta name="HandheldFriendly" content="true"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+        
+    
+    
+    
+    <link rel="next" href="../function/surrogate.html" />
+    
+    
+    <link rel="prev" href="../function/actor.html" />
+    
+
+        
+    </head>
+    <body>
+        
+        
+<link rel="stylesheet" href="../gitbook/style.css">
+
+
+        
+    <div class="book"  data-level="4.10" data-basepath=".." data-revision="1419604020148">
+    <div class="book-header">
+    <!-- Actions Left -->
+    <a href="#" class="btn pull-left toggle-summary" aria-label="Toggle summary"><i class="fa fa-align-justify"></i></a>
+    
+    <a href="https://github.com/null" target="_blank" class="btn pull-left home-bookmark" aria-label="GitHub home"><i class="fa fa-bookmark-o"></i></a>
+    
+    <a href="#" class="btn pull-left toggle-search" aria-label="Toggle search"><i class="fa fa-search"></i></a>
+    <span id="font-settings-wrapper">
+        <a href="#" class="btn pull-left toggle-font-settings" aria-label="Toggle font settings"><i class="fa fa-font"></i>
+        </a>
+        <div class="dropdown-menu font-settings">
+    <div class="dropdown-caret">
+        <span class="caret-outer"></span>
+        <span class="caret-inner"></span>
+    </div>
+
+    <div class="btn-group btn-block">
+        <button id="reduce-font-size" class="btn btn-default">A</button>
+        <button id="enlarge-font-size" class="btn btn-default">A</button>
+    </div>
+
+    <ul class="list-group font-family-list">
+        <li class="list-group-item" data-font="0">Serif</li>
+        <li class="list-group-item" data-font="1">Sans</li>
+    </ul>
+
+    <div class="btn-group btn-group-xs btn-block color-theme-list">
+        <button type="button" class="btn btn-default" id="color-theme-preview-0" data-theme="0">White</button>
+        <button type="button" class="btn btn-default" id="color-theme-preview-1" data-theme="1">Sepia</button>
+        <button type="button" class="btn btn-default" id="color-theme-preview-2" data-theme="2">Night</button>
+    </div>
+</div>
+
+    </span>
+
+    <!-- Actions Right -->
+    
+    <a href="#" target="_blank" class="btn pull-right google-plus-sharing-link sharing-link" data-sharing="google-plus" aria-label="Share on Google Plus"><i class="fa fa-google-plus"></i></a>
+    
+    
+    <a href="#" target="_blank" class="btn pull-right facebook-sharing-link sharing-link" data-sharing="facebook" aria-label="Share on Facebook"><i class="fa fa-facebook"></i></a>
+    
+    
+    <a href="#" target="_blank" class="btn pull-right twitter-sharing-link sharing-link" data-sharing="twitter" aria-label="Share on Twitter"><i class="fa fa-twitter"></i></a>
+    
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-spinner fa-spin"></i>
+        <a href="../" >Snaker Document</a>
+    </h1>
+</div>
+
+    
+
+<div class="book-summary">
+    <div class="book-search">
+        <input type="text" placeholder="Search" class="form-control" />
+    </div>
+    <ul class="summary">
+        
+        
+
+        
+
+        
+
+	
+
+        
+
+        
+    
+        
+        <li class="chapter " data-level="0" data-path="index.html">
+            
+                
+                    <a href="../index.html">
+                        <i class="fa fa-check"></i>
+                        
+                         介绍
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="1" data-path="install/README.html">
+            
+                
+                    <a href="../install/README.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.</b>
+                        
+                         源码及部署
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        
+        <li class="chapter " data-level="1.1" data-path="install/source.html">
+            
+                
+                    <a href="../install/source.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.1.</b>
+                        
+                         源码下载
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="1.2" data-path="install/eclipse.html">
+            
+                
+                    <a href="../install/eclipse.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.2.</b>
+                        
+                         Eclipse
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="1.3" data-path="install/idea.html">
+            
+                
+                    <a href="../install/idea.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.3.</b>
+                        
+                         IDEA
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="1.4" data-path="install/junit.html">
+            
+                
+                    <a href="../install/junit.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.4.</b>
+                        
+                         测试用例
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="1.5" data-path="install/deploy.html">
+            
+                
+                    <a href="../install/deploy.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.5.</b>
+                        
+                         演示部署
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="2" data-path="quickstart/README.html">
+            
+                
+                    <a href="../quickstart/README.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.</b>
+                        
+                         快速入门
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        
+        <li class="chapter " data-level="2.1" data-path="quickstart/flowxml.html">
+            
+                
+                    <a href="../quickstart/flowxml.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.1.</b>
+                        
+                         流程定义
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="2.2" data-path="quickstart/deploy.html">
+            
+                
+                    <a href="../quickstart/deploy.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.2.</b>
+                        
+                         流程部署
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="2.3" data-path="quickstart/start.html">
+            
+                
+                    <a href="../quickstart/start.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.3.</b>
+                        
+                         流程启动
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="2.4" data-path="quickstart/execute.html">
+            
+                
+                    <a href="../quickstart/execute.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.4.</b>
+                        
+                         任务执行
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="3" data-path="integration/README.html">
+            
+                
+                    <a href="../integration/README.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.</b>
+                        
+                         应用整合
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        
+        <li class="chapter " data-level="3.1" data-path="integration/api.html">
+            
+                
+                    <a href="../integration/api.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.1.</b>
+                        
+                         API整合
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="3.2" data-path="integration/spring.html">
+            
+                
+                    <a href="../integration/spring.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.2.</b>
+                        
+                         Spring整合
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="3.3" data-path="integration/jfinal.html">
+            
+                
+                    <a href="../integration/jfinal.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.3.</b>
+                        
+                         Jfinal整合
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="3.4" data-path="integration/nutz.html">
+            
+                
+                    <a href="../integration/nutz.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.4.</b>
+                        
+                         Nutz整合
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="4" data-path="function/README.html">
+            
+                
+                    <a href="../function/README.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.</b>
+                        
+                         详细说明
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        
+        <li class="chapter " data-level="4.1" data-path="function/table.html">
+            
+                
+                    <a href="../function/table.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.1.</b>
+                        
+                         表定义
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="4.2" data-path="function/database.html">
+            
+                
+                    <a href="../function/database.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.2.</b>
+                        
+                         数据库支持
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="4.3" data-path="function/engine.html">
+            
+                
+                    <a href="../function/engine.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.3.</b>
+                        
+                         流程引擎API
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="4.4" data-path="function/def.html">
+            
+                
+                    <a href="../function/def.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.4.</b>
+                        
+                         流程定义
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="4.5" data-path="function/model.html">
+            
+                
+                    <a href="../function/model.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.5.</b>
+                        
+                         模型操作
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="4.6" data-path="function/instance.html">
+            
+                
+                    <a href="../function/instance.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.6.</b>
+                        
+                         流程实例
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="4.7" data-path="function/task.html">
+            
+                
+                    <a href="../function/task.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.7.</b>
+                        
+                         活动任务
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="4.8" data-path="function/variable.html">
+            
+                
+                    <a href="../function/variable.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.8.</b>
+                        
+                         流程变量
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="4.9" data-path="function/actor.html">
+            
+                
+                    <a href="../function/actor.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.9.</b>
+                        
+                         任务参与者
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter active" data-level="4.10" data-path="function/interceptor.html">
+            
+                
+                    <a href="../function/interceptor.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.10.</b>
+                        
+                         节点拦截器
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="4.11" data-path="function/surrogate.html">
+            
+                
+                    <a href="../function/surrogate.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.11.</b>
+                        
+                         委托代理
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="4.12" data-path="function/decision.html">
+            
+                
+                    <a href="../function/decision.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.12.</b>
+                        
+                         决策表达式
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="4.13" data-path="function/subprocess.html">
+            
+                
+                    <a href="../function/subprocess.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.13.</b>
+                        
+                         子流程
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="4.14" data-path="function/timer.html">
+            
+                
+                    <a href="../function/timer.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.14.</b>
+                        
+                         时限控制
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="4.15" data-path="function/cc.html">
+            
+                
+                    <a href="../function/cc.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.15.</b>
+                        
+                         实例抄送
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="4.16" data-path="function/countersign.html">
+            
+                
+                    <a href="../function/countersign.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.16.</b>
+                        
+                         会签任务
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="4.17" data-path="function/forkjoin.html">
+            
+                
+                    <a href="../function/forkjoin.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.17.</b>
+                        
+                         Fork/Join
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="4.18" data-path="function/custom.html">
+            
+                
+                    <a href="../function/custom.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.18.</b>
+                        
+                         自定义节点
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="4.19" data-path="function/cascaderemove.html">
+            
+                
+                    <a href="../function/cascaderemove.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.19.</b>
+                        
+                         级联删除
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="4.20" data-path="function/query.html">
+            
+                
+                    <a href="../function/query.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.20.</b>
+                        
+                         综合查询
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+
+        
+        <li class="divider"></li>
+        <li>
+            <a href="http://www.gitbook.io/" target="blank" class="gitbook-link">Generated using GitBook</a>
+        </li>
+        
+    </ul>
+</div>
+
+    <div class="book-body">
+        <div class="body-inner">
+            <div class="page-wrapper" tabindex="-1">
+                <div class="book-progress">
+    <div class="bar">
+        <div class="inner" style="width: 72.97297297297297%;min-width: 70.27027027027027%;"></div>
+    </div>
+    <div class="chapters">
+    
+        <a href="../index.html" title="介绍" class="chapter done new-chapter" data-progress="0" style="left: 0%;"></a>
+    
+        <a href="../install/README.html" title="源码及部署" class="chapter done new-chapter" data-progress="1" style="left: 2.7027027027027026%;"></a>
+    
+        <a href="../install/source.html" title="源码下载" class="chapter done " data-progress="1.1" style="left: 5.405405405405405%;"></a>
+    
+        <a href="../install/eclipse.html" title="Eclipse" class="chapter done " data-progress="1.2" style="left: 8.108108108108109%;"></a>
+    
+        <a href="../install/idea.html" title="IDEA" class="chapter done " data-progress="1.3" style="left: 10.81081081081081%;"></a>
+    
+        <a href="../install/junit.html" title="测试用例" class="chapter done " data-progress="1.4" style="left: 13.513513513513514%;"></a>
+    
+        <a href="../install/deploy.html" title="演示部署" class="chapter done " data-progress="1.5" style="left: 16.216216216216218%;"></a>
+    
+        <a href="../quickstart/README.html" title="快速入门" class="chapter done new-chapter" data-progress="2" style="left: 18.91891891891892%;"></a>
+    
+        <a href="../quickstart/flowxml.html" title="流程定义" class="chapter done " data-progress="2.1" style="left: 21.62162162162162%;"></a>
+    
+        <a href="../quickstart/deploy.html" title="流程部署" class="chapter done " data-progress="2.2" style="left: 24.324324324324323%;"></a>
+    
+        <a href="../quickstart/start.html" title="流程启动" class="chapter done " data-progress="2.3" style="left: 27.027027027027028%;"></a>
+    
+        <a href="../quickstart/execute.html" title="任务执行" class="chapter done " data-progress="2.4" style="left: 29.72972972972973%;"></a>
+    
+        <a href="../integration/README.html" title="应用整合" class="chapter done new-chapter" data-progress="3" style="left: 32.432432432432435%;"></a>
+    
+        <a href="../integration/api.html" title="API整合" class="chapter done " data-progress="3.1" style="left: 35.13513513513514%;"></a>
+    
+        <a href="../integration/spring.html" title="Spring整合" class="chapter done " data-progress="3.2" style="left: 37.83783783783784%;"></a>
+    
+        <a href="../integration/jfinal.html" title="Jfinal整合" class="chapter done " data-progress="3.3" style="left: 40.54054054054054%;"></a>
+    
+        <a href="../integration/nutz.html" title="Nutz整合" class="chapter done " data-progress="3.4" style="left: 43.24324324324324%;"></a>
+    
+        <a href="../function/README.html" title="详细说明" class="chapter done new-chapter" data-progress="4" style="left: 45.945945945945944%;"></a>
+    
+        <a href="../function/table.html" title="表定义" class="chapter done " data-progress="4.1" style="left: 48.648648648648646%;"></a>
+    
+        <a href="../function/database.html" title="数据库支持" class="chapter done " data-progress="4.2" style="left: 51.351351351351354%;"></a>
+    
+        <a href="../function/engine.html" title="流程引擎API" class="chapter done " data-progress="4.3" style="left: 54.054054054054056%;"></a>
+    
+        <a href="../function/def.html" title="流程定义" class="chapter done " data-progress="4.4" style="left: 56.75675675675676%;"></a>
+    
+        <a href="../function/model.html" title="模型操作" class="chapter done " data-progress="4.5" style="left: 59.45945945945946%;"></a>
+    
+        <a href="../function/instance.html" title="流程实例" class="chapter done " data-progress="4.6" style="left: 62.16216216216216%;"></a>
+    
+        <a href="../function/task.html" title="活动任务" class="chapter done " data-progress="4.7" style="left: 64.86486486486487%;"></a>
+    
+        <a href="../function/variable.html" title="流程变量" class="chapter done " data-progress="4.8" style="left: 67.56756756756756%;"></a>
+    
+        <a href="../function/actor.html" title="任务参与者" class="chapter done " data-progress="4.9" style="left: 70.27027027027027%;"></a>
+    
+        <a href="../function/interceptor.html" title="节点拦截器" class="chapter done " data-progress="4.10" style="left: 72.97297297297297%;"></a>
+    
+        <a href="../function/surrogate.html" title="委托代理" class="chapter  " data-progress="4.11" style="left: 75.67567567567568%;"></a>
+    
+        <a href="../function/decision.html" title="决策表达式" class="chapter  " data-progress="4.12" style="left: 78.37837837837837%;"></a>
+    
+        <a href="../function/subprocess.html" title="子流程" class="chapter  " data-progress="4.13" style="left: 81.08108108108108%;"></a>
+    
+        <a href="../function/timer.html" title="时限控制" class="chapter  " data-progress="4.14" style="left: 83.78378378378379%;"></a>
+    
+        <a href="../function/cc.html" title="实例抄送" class="chapter  " data-progress="4.15" style="left: 86.48648648648648%;"></a>
+    
+        <a href="../function/countersign.html" title="会签任务" class="chapter  " data-progress="4.16" style="left: 89.1891891891892%;"></a>
+    
+        <a href="../function/forkjoin.html" title="Fork/Join" class="chapter  " data-progress="4.17" style="left: 91.89189189189189%;"></a>
+    
+        <a href="../function/custom.html" title="自定义节点" class="chapter  " data-progress="4.18" style="left: 94.5945945945946%;"></a>
+    
+        <a href="../function/cascaderemove.html" title="级联删除" class="chapter  " data-progress="4.19" style="left: 97.29729729729729%;"></a>
+    
+        <a href="../function/query.html" title="综合查询" class="chapter  " data-progress="4.20" style="left: 100%;"></a>
+    
+    </div>
+</div>
+
+                <div class="page-inner">
+                
+                    <section class="normal" id="section-gitbook_1927">
+                    
+                        <h3 id="">节点拦截器</h3>
+<p>snaker的拦截器支持所有的节点前后拦截，并且支持全局、局部拦截器。拦截器统一实现<code>SnakerInterceptor</code>接口</p>
+<pre><code>org.snaker.engine.SnakerInterceptor
+</code></pre><ul>
+<li><code>全局拦截器</code></li>
+<li><code>局部拦截器</code></li>
+</ul>
+<h4 id="">全局拦截器</h4>
+<p>全局拦截器会拦截所有新产生的任务对象。自定义的全局拦截器需要配置到<code>snaker.xml</code>中。如默认支持的日志拦截器</p>
+<pre><code>&lt;bean class=&quot;org.snaker.engine.impl.LogInterceptor&quot;/&gt;
+</code></pre><h4 id="">局部拦截器</h4>
+<p>局部拦截器支持节点执行的<code>前置</code>、<code>后置</code>拦截。需要配置到task节点模型的<code>preInterceptors</code>[前置拦截]、<code>postInterceptors</code>[后置拦截]属性</p>
+
+                    
+                    </section>
+                
+                </div>
+            </div>
+        </div>
+
+        
+        <a href="../function/actor.html" class="navigation navigation-prev " aria-label="Previous page: 任务参与者"><i class="fa fa-angle-left"></i></a>
+        
+        
+        <a href="../function/surrogate.html" class="navigation navigation-next " aria-label="Next page: 委托代理"><i class="fa fa-angle-right"></i></a>
+        
+    </div>
+</div>
+
+        
+<script src="../gitbook/jsrepl/jsrepl.js" id="jsrepl-script"></script>
+<script src="../gitbook/app.js"></script>
+
+    
+    <script src="https://cdn.mathjax.org/mathjax/2.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-mathjax/plugin.js"></script>
+    
+
+<script>
+require(["gitbook"], function(gitbook) {
+    var config = {};
+    gitbook.start(config);
+});
+</script>
+	<script type="text/javascript">
+		var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+		document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F89978c29a2dac2a973c76424425ead4f' type='text/javascript'%3E%3C/script%3E"));
+	</script>
+        
+    </body>
+    
+</html>
